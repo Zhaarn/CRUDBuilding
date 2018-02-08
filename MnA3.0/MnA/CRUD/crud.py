@@ -1,5 +1,5 @@
 from crudbuilder.abstract import BaseCrudBuilder
-
+from CRUD.models import Deal
 
 class DealCrud(BaseCrudBuilder):
     model = Deal
