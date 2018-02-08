@@ -1,10 +1,10 @@
 from crudbuilder.abstract import BaseCrudBuilder
-from CRUD.models import Deal
+from CRUD.models import Deal, DealHistory
 
 class DealCrud(BaseCrudBuilder):
     model = Deal
-    search_fields = ['Deal Number']
-    tables2_fields = tuple([f.name for f in model._meta.get_fields()])
+    search_fields = tuple([f.name for f in model._meta.get_fields()])
+    tables2_fields = search_fields
     tables2_css_class = "table table-bordered table-condensed"
     tables2_pagination = 20  # default is 10
     modelform_excludes = []
@@ -22,3 +22,11 @@ class DealCrud(BaseCrudBuilder):
     #     """Define your own custom context for list view"""
     #     context['custom_data'] = "Some custom data"
     #     return context
+
+class PokeCrud(BaseCrudBuilder):
+    model = DealHistory
+    search_fields = tuple([f.name for f in model._meta.get_fields()])
+    tables2_fields = search_fields
+    tables2_css_class = "table table-bordered table-condensed"
+    tables2_pagination = 20  # default is 10
+    modelform_excludes = []
